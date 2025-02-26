@@ -8,10 +8,11 @@ using UnityEngine;
         [SerializeField] private CinemachineCamera _cinemachineCamera;
         [SerializeField] private bool _useEdgeScrolling = false;
         [SerializeField] private bool _useDragPan = false;
-
         [SerializeField] private float _followOffsetMinY = 10f;
         [SerializeField] private float _followOffsetMaxY = 50f;
-
+        [SerializeField] private float moveSpeed = 50f;
+        [SerializeField] private float rotateSpeed = 100f;
+        private CameraInputManager input;
         private bool _dragPanMoveActive;
         private Vector2 _lastMousePosition;
 
@@ -20,6 +21,7 @@ using UnityEngine;
 
         private void Awake() {
             _cameraFollow = _cinemachineCamera.GetComponent<CinemachineFollow>();
+            input = CameraInputManager.Instance;
             _followOffset = _cameraFollow.FollowOffset;
         }
 
@@ -40,16 +42,10 @@ using UnityEngine;
         }
 
         private void HandleCameraMovement() {
-            Vector3 inputDir = new Vector3(0, 0, 0);
+            Vector3 inputDir = input.Move.ReadValue<Vector2>();
 
-            if (Input.GetKey(KeyCode.W)) inputDir.z = +1f;
-            if (Input.GetKey(KeyCode.S)) inputDir.z = -1f;
-            if (Input.GetKey(KeyCode.A)) inputDir.x = -1f;
-            if (Input.GetKey(KeyCode.D)) inputDir.x = +1f;
+            Vector3 moveDir = transform.forward * inputDir.y + transform.right * inputDir.x;
 
-            Vector3 moveDir = transform.forward * inputDir.z + transform.right * inputDir.x;
-
-            float moveSpeed = 50f;
             transform.position += moveDir * moveSpeed * Time.deltaTime;
         }
 
@@ -105,19 +101,16 @@ using UnityEngine;
         }
 
         private void HandleCameraRotation() {
-            float rotateDir = 0f;
-            if (Input.GetKey(KeyCode.Q)) rotateDir = +1f;
-            if (Input.GetKey(KeyCode.E)) rotateDir = -1f;
-
-            float rotateSpeed = 100f;
+            float rotateDir = input.Rotate.ReadValue<float>();
             transform.eulerAngles += new Vector3(0, rotateDir * rotateSpeed * Time.deltaTime, 0);
         }
         private void HandleCameraZoom_LowerY() {
             float zoomAmount = 3f;
-            if (Input.mouseScrollDelta.y > 0) {
+            var zoom = input.Zoom.ReadValue<Vector2>();
+            if (zoom.y > 0) {
                 _followOffset.y -= zoomAmount;
             }
-            if (Input.mouseScrollDelta.y < 0) {
+            if (zoom.y < 0) {
                 _followOffset.y += zoomAmount;
             }
 
