@@ -10,8 +10,8 @@ using UnityEngine;
         [SerializeField] private bool _useDragPan = false;
         [SerializeField] private float _followOffsetMinY = 10f;
         [SerializeField] private float _followOffsetMaxY = 50f;
-        [SerializeField] private float moveSpeed = 50f;
-        [SerializeField] private float rotateSpeed = 100f;
+        [SerializeField] private float _moveSpeed = 50f;
+        [SerializeField] private float _rotateSpeed = 100f;
         private CameraInputManager input;
         private bool _dragPanMoveActive;
         private Vector2 _lastMousePosition;
@@ -19,13 +19,16 @@ using UnityEngine;
         private Vector3 _followOffset;
         private CinemachineFollow _cameraFollow;
 
-        private void Awake() {
-            _cameraFollow = _cinemachineCamera.GetComponent<CinemachineFollow>();
+        private void Start()
+        {
+             _cameraFollow = _cinemachineCamera.GetComponent<CinemachineFollow>();
             input = CameraInputManager.Instance;
             _followOffset = _cameraFollow.FollowOffset;
         }
 
         private void Update() {
+            if(input == null) return;
+            
             HandleCameraMovement();
 
             if (_useEdgeScrolling) {
@@ -46,7 +49,7 @@ using UnityEngine;
 
             Vector3 moveDir = transform.forward * inputDir.y + transform.right * inputDir.x;
 
-            transform.position += moveDir * moveSpeed * Time.deltaTime;
+            transform.position += moveDir * _moveSpeed * Time.deltaTime;
         }
 
         private void HandleCameraMovementEdgeScrolling() {
@@ -102,7 +105,7 @@ using UnityEngine;
 
         private void HandleCameraRotation() {
             float rotateDir = input.Rotate.ReadValue<float>();
-            transform.eulerAngles += new Vector3(0, rotateDir * rotateSpeed * Time.deltaTime, 0);
+            transform.eulerAngles += new Vector3(0, rotateDir * _rotateSpeed * Time.deltaTime, 0);
         }
         private void HandleCameraZoom_LowerY() {
             float zoomAmount = 3f;

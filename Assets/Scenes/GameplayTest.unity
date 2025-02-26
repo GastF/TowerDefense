@@ -150,6 +150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 829976486}
+  - {fileID: 1445252495}
   m_Father: {fileID: 1357854693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &27078402
@@ -2397,6 +2398,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LookAtOffset: {x: 0, y: 0, z: 0}
+--- !u!1 &578264849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 578264850}
+  m_Layer: 0
+  m_Name: --------------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &578264850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578264849}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 120.999985, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &583898474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2735,6 +2767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596296192}
+  - component: {fileID: 596296193}
   m_Layer: 0
   m_Name: TowersManager
   m_TagString: Untagged
@@ -2757,6 +2790,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1357854693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &596296193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596296191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880b22b1209a3294f8f59828576c17bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Towers:
+  - {fileID: 11400000, guid: 2da60d748d4de03419d04d5ee85c7696, type: 2}
+  _towerUIDrawer: {fileID: 1969309030}
+  _towerUIHolder: {fileID: 5299006340257535112, guid: 027a58237c6b4714f884c1767177d41e, type: 3}
+  _towerUIIcon: {fileID: 5299006340257535112, guid: 563cb23850e7a0f4aa9c2da58b1bf855, type: 3}
 --- !u!114 &614123915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3328,8 +3378,8 @@ MonoBehaviour:
   _useDragPan: 0
   _followOffsetMinY: 10
   _followOffsetMaxY: 50
-  moveSpeed: 50
-  rotateSpeed: 100
+  _moveSpeed: 50
+  _rotateSpeed: 100
 --- !u!1 &744171587
 GameObject:
   m_ObjectHideFlags: 0
@@ -3915,8 +3965,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movement: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  _rotateLeft: {fileID: 1152853533833192585, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  _rotateRight: {fileID: -527507406047271896, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _rotate: {fileID: -8710837423782930881, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _zoom: {fileID: -639842022362039052, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   Move:
@@ -3924,24 +3972,6 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 426a4572-8527-4f44-8e65-c5bf5e560ae9
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  RotateLeft:
-    m_Name: Rotate Left
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e089b747-34e0-40d8-81b6-46db5d3f9aef
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  RotateRight:
-    m_Name: Rotate Right
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 33207e0d-405a-4e8d-97b4-46e9cb22d31d
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -5012,12 +5042,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445252492}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.13, y: -20.560001, z: 10.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 27078401}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1450020858
 MonoBehaviour:
@@ -6967,7 +6997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1693134321}
   m_Layer: 0
-  m_Name: FoodFarm
+  m_Name: StoneFarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7826,8 +7856,9 @@ GameObject:
   - component: {fileID: 1969309031}
   - component: {fileID: 1969309033}
   - component: {fileID: 1969309032}
+  - component: {fileID: 1969309034}
   m_Layer: 0
-  m_Name: TowerPicker
+  m_Name: TowerDrawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7849,8 +7880,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000009536743, y: 121}
-  m_SizeDelta: {x: 756.2837, y: 181.2522}
+  m_AnchoredPosition: {x: -0.0000076293945, y: 141}
+  m_SizeDelta: {x: 977.4135, y: 234.2485}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969309032
 MonoBehaviour:
@@ -7890,6 +7921,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969309030}
   m_CullTransparentMesh: 1
+--- !u!114 &1969309034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969309030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1974210108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8784,6 +8841,6 @@ SceneRoots:
   - {fileID: 656589302}
   - {fileID: 1363846707}
   - {fileID: 628107366}
+  - {fileID: 578264850}
   - {fileID: 441495766}
   - {fileID: 1770957418}
-  - {fileID: 1445252495}
