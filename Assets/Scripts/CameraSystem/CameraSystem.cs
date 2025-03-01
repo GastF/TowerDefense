@@ -15,7 +15,6 @@ using UnityEngine;
         private CameraInputManager input;
         private bool _dragPanMoveActive;
         private Vector2 _lastMousePosition;
-
         private Vector3 _followOffset;
         private CinemachineFollow _cameraFollow;
 
