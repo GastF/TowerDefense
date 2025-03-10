@@ -12,18 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdeeefe9eccf2094eb92ef23d495b64b, type: 3}
   m_Name: Basic Tower
   m_EditorClassIdentifier: 
-  TowerName: Balista
-  UiIcon: {fileID: 21300000, guid: 7b397fae6f9dd5a49bca3a9dfdfd0bf7, type: 3}
-  Info: 'Your basic tower!
+  Name: Ballista
+  Icon: {fileID: 21300000, guid: 7b397fae6f9dd5a49bca3a9dfdfd0bf7, type: 3}
+  Info: 'Basic Ballista
 
-    -Single target
-
-    -Fast
-
-    -Low Damage'
-  FireRate: 2
+    An ideal defense for every castle!'
+  RateOfFire: 1
   Damage: 5
   Range: 3
-  Cost: 0a0000000a00000005000000
+  ShotsPerFire: 1
+  Cost: 02000000050000000a000000
+  UpgradeCost: 0a000000050000000f000000
   TowerPrefab: {fileID: 8977643198441457864, guid: 61a3ecefb3d6136419fac86f17221caa, type: 3}
   BulletPrefab: {fileID: 8508000953975530244, guid: ca0ed946049d5e94981ce27b08064229, type: 3}

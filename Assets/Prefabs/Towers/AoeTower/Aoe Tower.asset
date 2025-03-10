@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdeeefe9eccf2094eb92ef23d495b64b, type: 3}
+  m_Name: Aoe Tower
+  m_EditorClassIdentifier: 
+  Name: Catapult
+  Icon: {fileID: 21300000, guid: 7b397fae6f9dd5a49bca3a9dfdfd0bf7, type: 3}
+  Info: 'Your basic tower!
+
+    -Single target
+
+    -Fast
+
+    -Low Damage'
+  RateOfFire: 0
+  Damage: 5
+  Range: 3
+  ShotsPerFire: 0
+  Cost: 0a0000000a00000005000000
+  TowerPrefab: {fileID: 8977643198441457864, guid: 61a3ecefb3d6136419fac86f17221caa, type: 3}
+  BulletPrefab: {fileID: 8508000953975530244, guid: ca0ed946049d5e94981ce27b08064229, type: 3}

@@ -21,7 +21,6 @@ public class CameraInputManager : MonoBehaviour
 
         _playerInput = GetComponentInParent<PlayerInput>();
         CameraActionMap = _playerInput.actions.FindActionMap("Camera");
-        CameraActionMap.Enable();
 
         EnableCameraInputs();
     }
@@ -40,7 +39,8 @@ public class CameraInputManager : MonoBehaviour
 
     private void EnableCameraInputs()
     {
-        
+        CameraActionMap.Enable();
+
         Move = _movement.action;
         Zoom = _zoom.action;
         Rotate = _rotate.action;

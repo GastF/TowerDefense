@@ -302,6 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7668506330264637970}
   - component: {fileID: 8169855789102747458}
+  - component: {fileID: 7810679187942045462}
   m_Layer: 0
   m_Name: Basic Tower
   m_TagString: Tower
@@ -344,5 +345,25 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3781185, y: 3.8806872, z: 1.3975605}
-  m_Center: {x: -0.025799036, y: 2.1, z: 0.018079102}
+  m_Size: {x: 1.2687743, y: 3.6946633, z: 1.3494456}
+  m_Center: {x: -0.003706336, y: 2.0069897, z: -0.005978346}
+--- !u!114 &7810679187942045462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977643198441457864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a05d9f7807e035489637703a28a2a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
+  Damage: 0
+  Range: 0
+  SellingPrice: 000000000000000000000000
+  UpgradeCost: 000000000000000000000000
+  timesUpgraded: 0
+  UpgradePuchased: 0
+  towerData: {fileID: 0}

@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+
 
 public  class TowersManager : MonoBehaviour
 {   
@@ -15,9 +14,15 @@ public  class TowersManager : MonoBehaviour
 
      //* Tower Placement
     private GameObject _currentTower;
+    private Collider _currentTowerCollider;
     private Camera _mainCamera;
     
+    private UIInputManager input;
 
+    void Awake()
+    {
+        input = UIInputManager.Instance;
+    }
     void OnEnable()
     {   
         _mainCamera = Camera.main;
@@ -32,7 +37,7 @@ public  class TowersManager : MonoBehaviour
     {
         foreach (SO_Tower towerData in Towers)
         {
-            //*Tower SETUP
+    
             TowerLoaded?.Invoke(towerData);
         }
     }
@@ -46,18 +51,29 @@ public  class TowersManager : MonoBehaviour
     {
         if (_currentTower == null) return;
 
+        
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 10f;
         Ray ray = _mainCamera.ScreenPointToRay(mousePos);
-        _currentTower.transform.position = Physics.Raycast(ray, out RaycastHit hit) ? hit.point : _mainCamera.ScreenToWorldPoint(mousePos);
 
-        if (Input.GetMouseButtonDown(0))
+        if(Physics.Raycast(ray, out RaycastHit hit))
         {
+            if(hit.collider.CompareTag("Tower"))
+            {
+                _currentTower.transform.position =  hit.point;
+                return;
+            }
+            _currentTower.transform.position =  hit.point;
+        
+        }
+        if (input.Click.WasPressedThisFrame())
+        {
+            _currentTowerCollider.enabled = true;
             _currentTower = null; 
             TowerPlaced?.Invoke();
         }
-        else if (Input.GetMouseButtonDown(1))
+        else if (input.RightClick.WasPressedThisFrame())
         {
+            
             Destroy(_currentTower);
             _currentTower = null;
             PlacingCanceled?.Invoke();
@@ -68,6 +84,9 @@ public  class TowersManager : MonoBehaviour
     {
         if (_currentTower != null) Destroy(_currentTower);
         _currentTower = Instantiate(tower.TowerPrefab,this.transform);
+        _currentTower.GetComponent<Tower>().towerData = tower;
+        _currentTowerCollider = _currentTower.GetComponent<Collider>();
+        _currentTowerCollider.enabled = false;
     }
 
 }
