@@ -21,11 +21,29 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
    
+    public void AddResource(int amount,Farm.FarmType type)
+    {
+        switch (type)
+        {
+            case Farm.FarmType.StoneFarm:
+                Stone += amount;
+                break;
+            case Farm.FarmType.WoodFarm:
+                Wood += amount;
+                break;
+            case Farm.FarmType.GoldFarm:
+                Gold += amount;
+                break;
+        }
+        UIManager.instance.UpdateResourcesUI();
+    }
     
     public void ManageResources(Tower tower)
     {
         Stone+= tower.SellingPrice[0];
         Wood += tower.SellingPrice[1];
         Gold += tower.SellingPrice[2];
+        
+        UIManager.instance.UpdateResourcesUI();
     }
 }

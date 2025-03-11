@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
-    
+    public static UIManager instance;
     [SerializeField] private RectTransform _bottomDrawer;
     [SerializeField] private RectTransform _arrow;
 
@@ -42,6 +42,9 @@ public class UIManager : MonoBehaviour
     {
         input = UIInputManager.Instance;
         gameManager = GameManager.Instance;
+        if(instance == null)
+            instance = this;
+    
     }
     void OnEnable()
     {
@@ -207,7 +210,7 @@ public class UIManager : MonoBehaviour
         DisableCanvasGroup(TowerInfo.TowerInfoCanvasGroup);
         _currentTower.UpgradePuchased = true;
         _currentTower.timesUpgraded++;
-        
+        _currentTower.Upgrade();
         
     }
     public void HideUpgrade()
@@ -218,11 +221,10 @@ public class UIManager : MonoBehaviour
     {   
         _currentTower.Sell();
         gameManager.ManageResources(_currentTower);
-        UpdateResourcesUI();
         ShowTowers();
     }
 
-    private void UpdateResourcesUI()
+    public void UpdateResourcesUI()
     {
         TopDrawer.stone.text = gameManager.Stone.ToString();
         TopDrawer.wood.text = gameManager.Wood.ToString();
