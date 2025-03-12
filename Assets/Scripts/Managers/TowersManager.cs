@@ -8,7 +8,7 @@ public  class TowersManager : MonoBehaviour
     [Header("Available Towers Setup")]
     [SerializeField] private SO_Tower[] Towers;
     public static event Action<SO_Tower> TowerLoaded;
-    public static event Action TowerPlaced;
+    public static event Action <int[]>TowerPurchased;
     public static event Action PlacingCanceled;
     
 
@@ -66,10 +66,11 @@ public  class TowersManager : MonoBehaviour
         
         }
         if (input.Click.WasPressedThisFrame())
-        {
+        {   
+            TowerPurchased?.Invoke(_currentTower.GetComponent<Tower>().towerData.Cost);
             _currentTowerCollider.enabled = true;
             _currentTower = null; 
-            TowerPlaced?.Invoke();
+            
         }
         else if (input.RightClick.WasPressedThisFrame())
         {

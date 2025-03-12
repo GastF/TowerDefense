@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public abstract class Farm : MonoBehaviour , IPointerClickHandler
 {
-   
+    #region Variables
     public FarmType farmType;
     public enum FarmType
     {    
@@ -14,29 +15,33 @@ public abstract class Farm : MonoBehaviour , IPointerClickHandler
         GoldFarm
     }
 
+    [HideInInspector]public bool UpgradePuchased;
+
     public FarmData farm;
     public FarmUpgradeCost farmUpgradeCost;
     public FarmTier farmTier;
+    public float CurrentProgress;
     
-    [System.Serializable] public class FarmData
+    [Serializable] public class FarmData
     {
         public int level = 1;
         public int amount = 5;
         public float interval = 5f;
     }
     
-    [System.Serializable] public class FarmUpgradeCost
+    [Serializable] public class FarmUpgradeCost
     {
         public int[] farmUpgradeCost1 = {20,20,20};
         public int[] farmUpgradeCost2 = {30,30,30};
         public int[] farmUpgradeCost3 = {40,40,40};
     }
     
-    [System.Serializable] public class FarmTier
+    [Serializable] public class FarmTier
     {
         public GameObject Tier1, Tier2, Tier3;
     }
-    
+    #endregion
+    public static event Action<Farm> OnFarmClicked; 
 
     void OnEnable()
     {
@@ -54,23 +59,49 @@ public abstract class Farm : MonoBehaviour , IPointerClickHandler
     }
     public void Upgrade()
     {
-        farm.level++;
-        farm.amount += 5;
-        farm.interval -= 0.5f;
+         switch (farm.level)
+        {
+            
+            case 2:
+                farmTier.Tier1.SetActive(false);
+                farmTier.Tier2.SetActive(true);
+                farmTier.Tier3.SetActive(false);
+                break;
+            case 3:
+                farmTier.Tier1.SetActive(false);
+                farmTier.Tier2.SetActive(false);
+                farmTier.Tier3.SetActive(true);
+                break;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
+        {  
+            OnFarmClicked?.Invoke(this);
             Debug.Log($"Farm {farmType} Clicked");
+        }
     }
     IEnumerator Produce()
     {
+        
         while (true)
         {
-            yield return new WaitForSeconds(farm.interval);
-            GameManager.Instance.AddResource(farm.amount,farmType);
+            float elapsedTime = 0f;
+            CurrentProgress = 0f;
+
+            while (elapsedTime < farm.interval)
+            {
+                elapsedTime += Time.deltaTime;
+                CurrentProgress = Mathf.Clamp01(elapsedTime / farm.interval);
+                yield return null; // Espera al siguiente frame
+            }
+
+            CurrentProgress = 1f;
+            GameManager.Instance.AddResource(farm.amount, farmType);
         }
     }
+    
     
 }

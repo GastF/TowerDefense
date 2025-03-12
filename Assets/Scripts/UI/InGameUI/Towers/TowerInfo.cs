@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 
 public class TowerInfo : MonoBehaviour
@@ -14,5 +15,12 @@ public class TowerInfo : MonoBehaviour
     public TextMeshProUGUI[] TowerSellingPrice;
     public Button CancelButton;
     public Button SellButton;
-
+    
+    public static Action<Tower> OnTowerSold;
+    public void SellTower()
+    {   
+        UIManager.Instance.CurrentTower.Sell();
+        OnTowerSold?.Invoke(UIManager.Instance.CurrentTower);
+        UIManager.Instance.ShowTowers();
+    }
 }
