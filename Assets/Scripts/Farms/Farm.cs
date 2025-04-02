@@ -38,7 +38,7 @@ public abstract class Farm : MonoBehaviour , IPointerClickHandler
     
     [Serializable] public class FarmTier
     {
-        public GameObject Tier1, Tier2, Tier3;
+        public UnityEngine.GameObject Tier1, Tier2, Tier3;
     }
     #endregion
     public static event Action<Farm> OnFarmClicked; 

@@ -1,27 +1,41 @@
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class TopDrawer : MonoBehaviour
 {
-    public TextMeshProUGUI stone;
-    public TextMeshProUGUI wood;
-    public TextMeshProUGUI gold;
-    public TextMeshProUGUI hp;
-    public TextMeshProUGUI waves;
+    public TextMeshProUGUI Stone;
+    public TextMeshProUGUI Wood;
+    public TextMeshProUGUI Gold;
+    public TextMeshProUGUI Hp;
+    public TextMeshProUGUI EnemiesAlive;
+    public TextMeshProUGUI Waves;
 
     public void UpdateResources()
     {
-        stone.text = GameManager.Instance.Stone.ToString();
-        wood.text = GameManager.Instance.Wood.ToString();
-        gold.text = GameManager.Instance.Gold.ToString();
+        Stone.text = GameManager.Instance.Stone.ToString();
+        Wood.text = GameManager.Instance.Wood.ToString();
+        Gold.text = GameManager.Instance.Gold.ToString();
     }
+    
     public void UpdateHP()
     {
-        hp.text = GameManager.Instance.HP.ToString();
+        Hp.text = GameManager.Instance.HP.ToString();
     }
     public void UpdateWaves()
     {
-        waves.text = $"{GameManager.Instance.CurrentWave}/{GameManager.Instance.Waves}";
+        Waves.text = $"{GameManager.Instance.CurrentWave + 1}/{GameManager.Instance.TotalWaves}";
+    }
+    
+    public void UpdateEnemiesAlive()
+    {
+        
+        if(WavesManager.Instance.EnemiesAliveInTotal == 0)
+        {
+            EnemiesAlive.text = "0";
+            return;
+        }
+        EnemiesAlive.text = WavesManager.Instance.EnemiesAliveInTotal.ToString();
     }
    
 }

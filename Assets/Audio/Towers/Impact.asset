@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-5738337048044147074
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Spell Impact 3_{-5738337048044147074}
+  m_AudioClip: {fileID: 8300000, guid: e23fbe58d75abc246a43fcfed26fe2b0, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-4729469601203243766
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Spell Impact 1_{-4729469601203243766}
+  m_AudioClip: {fileID: 8300000, guid: 7ab364546251c4f4a900d8eaf69f33ee, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1136019990138125012
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bow Impact Hit 1_{-1136019990138125012}
+  m_AudioClip: {fileID: 8300000, guid: c10cea138a4682d47be4200062f56225, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &3155565185334064031
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Spell Impact 2_{3155565185334064031}
+  m_AudioClip: {fileID: 8300000, guid: bda351e768ad4d040a99406720cf8426, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &6133360283168422560
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bow Impact Hit 2_{6133360283168422560}
+  m_AudioClip: {fileID: 8300000, guid: 2442e43f878d9154f9d11cf4a0a061a4, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Impact
+  m_Volume: -10.9
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: -1.57969, y: 2.933712}
+  m_PitchRandomizationRange: {x: -111.70671, y: 118.476685}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -4729469601203243766}
+  - {fileID: 3155565185334064031}
+  - {fileID: -5738337048044147074}
+  - {fileID: -1136019990138125012}
+  - {fileID: 6133360283168422560}
+  - {fileID: 8027971959247880835}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 2
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &8027971959247880835
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bow Impact Hit 3_{8027971959247880835}
+  m_AudioClip: {fileID: 8300000, guid: ce208d134abd57b46b3b00353d76c824, type: 3}
+  m_Volume: 0
+  m_Enabled: 1

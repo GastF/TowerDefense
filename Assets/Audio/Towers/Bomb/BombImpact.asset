@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-2958895071806093696
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: medium-explosion-40472_{-2958895071806093696}
+  m_AudioClip: {fileID: 8300000, guid: 07754c1215e4a1647956bc632d55a00a, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &209733906592028506
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: small-explosion-129477_{209733906592028506}
+  m_AudioClip: {fileID: 8300000, guid: 9cea4ca876c9a2a4c84ea4cb8620baea, type: 3}
+  m_Volume: -9.5
+  m_Enabled: 0
+--- !u!1233149941 &5466734552018668667
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rock Wall 2_{5466734552018668667}
+  m_AudioClip: {fileID: 8300000, guid: ef73ef53bacf84f45b9f172d2533fd5c, type: 3}
+  m_Volume: 0
+  m_Enabled: 0
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BombImpact
+  m_Volume: -15.9
+  m_Pitch: 441
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: -1.3540173, y: 6.770096}
+  m_PitchRandomizationRange: {x: -135.40204, y: 1200}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 6458070588294884492}
+  - {fileID: 5466734552018668667}
+  - {fileID: 209733906592028506}
+  - {fileID: -2958895071806093696}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 0
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &6458070588294884492
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rock Wall 1_{6458070588294884492}
+  m_AudioClip: {fileID: 8300000, guid: be61df68e38d1b145b986b3f896352f8, type: 3}
+  m_Volume: 0
+  m_Enabled: 0

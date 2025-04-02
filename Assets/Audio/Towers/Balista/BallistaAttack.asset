@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-1810223346190855689
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bow Attack 1_{-1810223346190855689}
+  m_AudioClip: {fileID: 8300000, guid: d41c59a609bc92a45b5a0a6debe69081, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &6085295123956386342
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: arrow-swish_03-306040_{6085295123956386342}
+  m_AudioClip: {fileID: 8300000, guid: 1c2efae7819a1954da0b01d2bde2eb2a, type: 3}
+  m_Volume: 0
+  m_Enabled: 0
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BallistaAttack
+  m_Volume: -15.1
+  m_Pitch: -57
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: -1.57969, y: 1.5796804}
+  m_PitchRandomizationRange: {x: -30.465248, y: 137.09471}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -1810223346190855689}
+  - {fileID: 7279879146554683937}
+  - {fileID: 6085295123956386342}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 2
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &7279879146554683937
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bow Attack 2_{7279879146554683937}
+  m_AudioClip: {fileID: 8300000, guid: b5daa6cd4fa1a3742b1b279dedad283f, type: 3}
+  m_Volume: 0
+  m_Enabled: 1

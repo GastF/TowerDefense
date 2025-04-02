@@ -48,7 +48,7 @@ using UnityEngine;
 
             Vector3 moveDir = transform.forward * inputDir.y + transform.right * inputDir.x;
 
-            transform.position += moveDir * _moveSpeed * Time.deltaTime;
+            transform.position += moveDir * _moveSpeed * Time.unscaledDeltaTime;
         }
 
         private void HandleCameraMovementEdgeScrolling() {
@@ -72,7 +72,7 @@ using UnityEngine;
             Vector3 moveDir = transform.forward * inputDir.z + transform.right * inputDir.x;
 
             float moveSpeed = 50f;
-            transform.position += moveDir * moveSpeed * Time.deltaTime;
+            transform.position += moveDir * moveSpeed * Time.unscaledDeltaTime;
         }
 
         private void HandleCameraMovementDragPan() {
@@ -99,12 +99,12 @@ using UnityEngine;
             Vector3 moveDir = transform.forward * inputDir.z + transform.right * inputDir.x;
 
             float moveSpeed = 50f;
-            transform.position += moveDir * moveSpeed * Time.deltaTime;
+            transform.position += moveDir * moveSpeed * Time.unscaledDeltaTime;
         }
 
         private void HandleCameraRotation() {
             float rotateDir = input.Rotate.ReadValue<float>();
-            transform.eulerAngles += new Vector3(0, rotateDir * _rotateSpeed * Time.deltaTime, 0);
+            transform.eulerAngles += new Vector3(0, rotateDir * _rotateSpeed * Time.unscaledDeltaTime, 0);
         }
         private void HandleCameraZoom_LowerY() {
             float zoomAmount = 3f;
@@ -119,7 +119,7 @@ using UnityEngine;
             _followOffset.y = Mathf.Clamp(_followOffset.y, _followOffsetMinY, _followOffsetMaxY);
 
             float zoomSpeed = 10f;
-            _cameraFollow.FollowOffset = Vector3.Lerp(_cameraFollow.FollowOffset, _followOffset, Time.deltaTime * zoomSpeed);
+            _cameraFollow.FollowOffset = Vector3.Lerp(_cameraFollow.FollowOffset, _followOffset, Time.unscaledDeltaTime * zoomSpeed);
 
         }
 

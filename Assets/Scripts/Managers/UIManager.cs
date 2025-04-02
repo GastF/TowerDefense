@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     [Header("Drawers")]
     public TopDrawer TopDrawer;
 
+    public SplashesUI Splashes;
+    public WavesUI Waves;
+    
     public FarmsUI Farms;
     [Serializable] public class FarmsUI
     {   
@@ -51,8 +54,11 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         input = UIInputManager.Instance;
-        if(Instance == null)
-            Instance = this;
+       if(Instance != null)
+        {
+            Destroy(Instance);
+        } 
+        Instance = this;
     
     }
     void OnEnable()
@@ -72,15 +78,21 @@ public class UIManager : MonoBehaviour
         Tower.OnTowerClicked -= ShowTowerInfo;
         Farm.OnFarmClicked -= ShowFarmInfo;
         input.RightClick.performed -= HideInfo;
+        if(Instance != null)
+        Destroy(Instance);
     }
 
     
     #region Tower UI
     
     public void ShowTowers()
-    {
+    {   
+
+        if(CurrentTower != null) CurrentTower.HideRange();
+
         CurrentTower = null;
         CurrentFarm = null;
+        _displayingInfo = false;
         
         EnableCanvasGroup(Towers.TowersCanvasGroup);
         EnableCanvasGroup(Towers.TowerPicker.TowerPickerCanvasGroup);
@@ -115,13 +127,15 @@ public class UIManager : MonoBehaviour
     }
     public void ShowTowerInfo(Tower tower)
     {   
-        if(tower.towerData == null) return;
+        if(tower.Data.ScriptableData == null) return;
+        if(CurrentTower !=null) CurrentTower.HideRange();
          CurrentTower = tower;
         _displayingInfo = true;
+        tower.ShowRange();
         if(!_drawerOpen) HideShowDrawer();
         EnableCanvasGroup(Towers.TowersCanvasGroup);
         DisableCanvasGroup(Farms.FarmsCanvasGroup);
-        if(tower.UpgradePuchased)
+        if(tower.Data.UpgradePuchased)
         {
             EnableCanvasGroup (Towers.TowerUpgrade.TowerUpgradeCanvasGroup);
             DisableCanvasGroup(Towers.TowerInfo.TowerInfoCanvasGroup);
@@ -138,23 +152,18 @@ public class UIManager : MonoBehaviour
             EnableCanvasGroup(Towers.TowerInfo.TowerInfoCanvasGroup);
             EnableCanvasGroup(Towers.TowerInfo.TowerUpgradeSellCanvasGroup);
 
-            if (tower.Damage == 0 || tower.Range == 0 || tower.Speed == 0)
-            {
-                tower.Damage = tower.towerData.Damage;
-                tower.Range = tower.towerData.Range;
-                tower.Speed = tower.towerData.RateOfFire;
-            }
+           
 
-            Towers.TowerStats.Damage.text = tower.Damage.ToString();
-            Towers.TowerStats.Range.text = tower.Range.ToString();
-            Towers.TowerStats.Speed.text = tower.Speed.ToString();
+            Towers.TowerStats.Damage.text = tower.Stats.Damage.ToString();
+            Towers.TowerStats.Range.text = tower.Stats.Range.ToString();
+            Towers.TowerStats.Speed.text = tower.Stats.Speed.ToString();
 
             
             SetTowerUpgradeAndSellPrices(tower);
             
             int i = 0;
             i = 0;
-            foreach (var towerResource in tower.towerData.Cost)
+            foreach (var towerResource in tower.Data.ScriptableData.Cost)
             {
                 Towers.TowerInfo.TowerCost[i].text = towerResource.ToString();
                 i++;
@@ -162,8 +171,8 @@ public class UIManager : MonoBehaviour
 
 
 
-            Towers.TowerInfo.TowerInfoIcon.sprite = tower.towerData.Icon;
-            Towers.TowerInfo.TowerInfoText.text = tower.towerData.Info;
+            Towers.TowerInfo.TowerInfoIcon.sprite = tower.Data.ScriptableData.Icon;
+            Towers.TowerInfo.TowerInfoText.text = tower.Data.ScriptableData.Info;
         }
     }
 
@@ -171,23 +180,23 @@ public class UIManager : MonoBehaviour
     {
         int i = 0;
         int[] totalInvested = { 0, 0, 0 };
-        CopyArrayValues(tower.towerData.Cost, tower.SellingPrice);
-        CopyArrayValues(tower.towerData.UpgradeCost, tower.UpgradeCost);
-        for (i = 0; i < tower.UpgradeCost.Length; i++)
+        CopyArrayValues(tower.Data.ScriptableData.Cost, tower.Data.SellingPrice);
+        CopyArrayValues(tower.Data.ScriptableData.UpgradeCost, tower.Data.UpgradeCost);
+        for (i = 0; i < tower.Data.UpgradeCost.Length; i++)
         {
-            if (tower.timesUpgraded == 0)
-               Towers. TowerUpgrade.UpgradeCost[i].text = tower.UpgradeCost[i].ToString();
+            if (tower.Data.timesUpgraded == 0)
+               Towers. TowerUpgrade.UpgradeCost[i].text = tower.Data.UpgradeCost[i].ToString();
             else
-               Towers. TowerUpgrade.UpgradeCost[i].text = (tower.UpgradeCost[i] * tower.timesUpgraded).ToString();
-            totalInvested[i] = (tower.UpgradeCost[i] * tower.timesUpgraded) / 2;
+               Towers. TowerUpgrade.UpgradeCost[i].text = (tower.Data.UpgradeCost[i] * tower.Data.timesUpgraded).ToString();
+            totalInvested[i] = (tower.Data.UpgradeCost[i] * tower.Data.timesUpgraded) / 2;
         }
-        for (i = 0; i < tower.SellingPrice.Length; i++)
+        for (i = 0; i < tower.Data.SellingPrice.Length; i++)
         {
-            if (tower.timesUpgraded == 0)
-                Towers.TowerInfo.TowerSellingPrice[i].text = (tower.SellingPrice[i] / 2).ToString();
+            if (tower.Data.timesUpgraded == 0)
+                Towers.TowerInfo.TowerSellingPrice[i].text = (tower.Data.SellingPrice[i] / 2).ToString();
             else
-                Towers.TowerInfo.TowerSellingPrice[i].text = (totalInvested[i] + (tower.SellingPrice[i] / 2)).ToString();
-            tower.SellingPrice[i] = (totalInvested[i] + (tower.SellingPrice[i] / 2));
+                Towers.TowerInfo.TowerSellingPrice[i].text = (totalInvested[i] + (tower.Data.SellingPrice[i] / 2)).ToString();
+            tower.Data.SellingPrice[i] = (totalInvested[i] + (tower.Data.SellingPrice[i] / 2));
         }
         
 
@@ -195,19 +204,18 @@ public class UIManager : MonoBehaviour
     
     private void HideInfo(InputAction.CallbackContext context)
     {
-        if(!_displayingInfo) return;
-        CurrentTower = null;
-        CurrentFarm = null;
-        _displayingInfo = false;
-        ShowTowers();
+        
+        if(_displayingInfo)
+         ShowTowers(); 
+        
     }
     public void ShowTowerUpgrade()
     {   
-        OnUseResources?.Invoke(CurrentTower.UpgradeCost);
+        OnUseResources?.Invoke(CurrentTower.Data.UpgradeCost);
         EnableCanvasGroup(Towers.TowerUpgrade.TowerUpgradeCanvasGroup);
         DisableCanvasGroup(Towers.TowerInfo.TowerInfoCanvasGroup);
-        CurrentTower.UpgradePuchased = true;
-        CurrentTower.timesUpgraded++;
+        CurrentTower.Data.UpgradePuchased = true;
+        CurrentTower.Data.timesUpgraded++;
         CurrentTower.Upgrade();
         
     }
@@ -223,17 +231,22 @@ public class UIManager : MonoBehaviour
     {   
         _displayingInfo = true;
         CurrentFarm = farm;
+        
         if(!_drawerOpen) HideShowDrawer();
+
         if(farm.UpgradePuchased)
         {
+            EnableCanvasGroup(Farms.FarmsCanvasGroup);
             EnableCanvasGroup(Farms.FarmUpgrade.UpgradeCanvasGroup);
+            
             DisableCanvasGroup(Farms.FarmInfo.InfoCanvasGroup);
+            DisableCanvasGroup(Towers.TowersCanvasGroup);
             return;
         }
         Farms.FarmInfo.SetFarmIcon(CurrentFarm);
         Farms.FarmInfo.SetFarmStats(CurrentFarm);
         SetFarmUpgradePrices(CurrentFarm);
-        EnableCanvasGroup(Farms.FarmsCanvasGroup);
+        EnableCanvasGroup( Farms.FarmsCanvasGroup);
         EnableCanvasGroup(Farms.FarmInfo.InfoCanvasGroup);
         DisableCanvasGroup(Towers.TowersCanvasGroup);
         DisableCanvasGroup(Farms.FarmUpgrade.UpgradeCanvasGroup);
@@ -242,6 +255,7 @@ public class UIManager : MonoBehaviour
     }
      public void ShowFarmUpgrade()
     {   
+        
         switch(CurrentFarm.farm.level)
         {   
             case 1:
@@ -250,7 +264,7 @@ public class UIManager : MonoBehaviour
             case 2:
                 OnUseResources?.Invoke(CurrentFarm.farmUpgradeCost.farmUpgradeCost2);
                 break;
-            case 3:
+            default:
                 OnUseResources?.Invoke(CurrentFarm.farmUpgradeCost.farmUpgradeCost3);
                 break;
         }
@@ -298,6 +312,7 @@ public class UIManager : MonoBehaviour
         }
     }
     #endregion
+    
     #region Utils
     private void CopyArrayValues(int[] source, int[] destination)
     {

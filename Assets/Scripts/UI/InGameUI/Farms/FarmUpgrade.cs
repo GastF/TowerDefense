@@ -39,7 +39,7 @@ public class FarmUpgrade : MonoBehaviour
                 return;   
            
             case 2:
-                var cost2 = farm.farmUpgradeCost.farmUpgradeCost1;
+                var cost2 = farm.farmUpgradeCost.farmUpgradeCost2;
                 for (int i = 0; i < cost2.Length; i++)
                 {
                     if (cost2[i] > GameManager.Instance.Stone || cost2[i] > GameManager.Instance.Wood || cost2[i] > GameManager.Instance.Gold)
@@ -52,8 +52,8 @@ public class FarmUpgrade : MonoBehaviour
                 PurchaseUpgradeButton.interactable = true;
                 Background.color = UIManager.Instance.AvailableColor;
                 return;  
-            case 3:
-                var cost3 = farm.farmUpgradeCost.farmUpgradeCost1;
+            default:
+                var cost3 = farm.farmUpgradeCost.farmUpgradeCost3;
                 for (int i = 0; i < cost3.Length; i++)
                 {
                     if (cost3[i] > GameManager.Instance.Stone || cost3[i] > GameManager.Instance.Wood || cost3[i] > GameManager.Instance.Gold)
@@ -65,7 +65,9 @@ public class FarmUpgrade : MonoBehaviour
                 }
                 PurchaseUpgradeButton.interactable = true;
                 Background.color = UIManager.Instance.AvailableColor;
-                return;  
+                return;
+            
+                
         }
     }
 

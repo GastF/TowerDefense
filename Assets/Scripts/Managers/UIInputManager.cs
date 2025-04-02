@@ -17,7 +17,10 @@ public class UIInputManager : MonoBehaviour
     
     void Awake()
     {  
-        if(Instance != null) return;
+       if(Instance != null)
+        {
+            Destroy(Instance);
+        } 
         Instance = this;
 
         _playerInput = GetComponentInParent<PlayerInput>();
@@ -27,7 +30,10 @@ public class UIInputManager : MonoBehaviour
     }
     void OnDisable()
     {
+
         DisableCameraInputs();
+        if(Instance != null)
+        Destroy(Instance);
     }
 
     private void DisableCameraInputs()

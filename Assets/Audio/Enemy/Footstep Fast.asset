@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-9184324870251009856
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Run 3_{-9184324870251009856}
+  m_AudioClip: {fileID: 8300000, guid: 0640b3580d72d424da422225f553fd49, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-8902331730241336446
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Run 5_{-8902331730241336446}
+  m_AudioClip: {fileID: 8300000, guid: 9d632dcacded37348b0ae453a7276e5e, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-5583464272127880680
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Run 4_{-5583464272127880680}
+  m_AudioClip: {fileID: 8300000, guid: fa0a3e36a1257e74abd637ad566fd6df, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-5277033797096206929
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Walk 4_{-5277033797096206929}
+  m_AudioClip: {fileID: 8300000, guid: fd6cc1bb641188a48b241a484115038f, type: 3}
+  m_Volume: 0
+  m_Enabled: 0
+--- !u!1233149941 &-4984465935001172737
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Walk 2_{-4984465935001172737}
+  m_AudioClip: {fileID: 8300000, guid: 619fb922c8882f64cb22a3d983dd2a99, type: 3}
+  m_Volume: 0
+  m_Enabled: 0
+--- !u!1233149941 &-2667605147000435704
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Walk 3_{-2667605147000435704}
+  m_AudioClip: {fileID: 8300000, guid: 99854a6ab944d3e478d6bf6957bd73f9, type: 3}
+  m_Volume: 0
+  m_Enabled: 0
+--- !u!1233149941 &542127789477601980
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Walk 5_{542127789477601980}
+  m_AudioClip: {fileID: 8300000, guid: bab28145eba0f0945b58f0ec01a9646d, type: 3}
+  m_Volume: 0
+  m_Enabled: 0
+--- !u!1233149941 &5345896431540996480
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Walk 1_{5345896431540996480}
+  m_AudioClip: {fileID: 8300000, guid: 88f9652ea7e5ae84eb8c23a1c84721d6, type: 3}
+  m_Volume: 0
+  m_Enabled: 0
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Footstep Fast
+  m_Volume: -19
+  m_Pitch: 280
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: -2.4823713, y: 4.964733}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 8811937755895567376}
+  - {fileID: 7416291584685445473}
+  - {fileID: -9184324870251009856}
+  - {fileID: -5583464272127880680}
+  - {fileID: -8902331730241336446}
+  - {fileID: 5345896431540996480}
+  - {fileID: -4984465935001172737}
+  - {fileID: -2667605147000435704}
+  - {fileID: -5277033797096206929}
+  - {fileID: 542127789477601980}
+  m_AvoidRepeatingLast: 1
+  m_PlaybackMode: 2
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 0
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &7416291584685445473
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Run 2_{7416291584685445473}
+  m_AudioClip: {fileID: 8300000, guid: 7de053e56aafb3c4aab6fcca2ecc70de, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &8811937755895567376
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dirt Run 1_{8811937755895567376}
+  m_AudioClip: {fileID: 8300000, guid: 7f39cc5ba0d69144a992a71eed935d88, type: 3}
+  m_Volume: 0
+  m_Enabled: 1

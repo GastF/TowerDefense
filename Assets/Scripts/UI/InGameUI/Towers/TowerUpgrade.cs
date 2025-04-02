@@ -24,9 +24,9 @@ public class TowerUpgrade : MonoBehaviour
     }
     private void CheckUpgradable(Tower tower)
     {
-        for (int i = 0; i < tower.UpgradeCost.Length; i++)
+        for (int i = 0; i < tower.Data.UpgradeCost.Length; i++)
         {
-            if (tower.UpgradeCost[i] > GameManager.Instance.Stone || tower.UpgradeCost[i] > GameManager.Instance.Wood || tower.UpgradeCost[i] > GameManager.Instance.Gold)
+            if (tower.Data.UpgradeCost[i] > GameManager.Instance.Stone || tower.Data.UpgradeCost[i] > GameManager.Instance.Wood || tower.Data.UpgradeCost[i] > GameManager.Instance.Gold)
             {
                 PurchaseUpgradeButton.interactable = false;
                 Background.color = UIManager.Instance.UnavailableColor;
@@ -39,20 +39,20 @@ public class TowerUpgrade : MonoBehaviour
     }
     public void UpgradeDamage()
     {
-        UIManager.Instance.CurrentTower.Damage += DamageUpgrade;
-        UIManager.Instance.CurrentTower.UpgradePuchased = false;
+        UIManager.Instance.CurrentTower.Stats.Damage += DamageUpgrade;
+        UIManager.Instance.CurrentTower.Data.UpgradePuchased = false;
         UIManager.Instance.ShowTowerInfo(UIManager.Instance.CurrentTower);
     }
     public void UpgradeSpeed()
     {
-        UIManager.Instance.CurrentTower.Speed += SpeedUpgrade;
-        UIManager.Instance.CurrentTower.UpgradePuchased = false;
+        UIManager.Instance.CurrentTower.Stats.Speed += SpeedUpgrade;
+        UIManager.Instance.CurrentTower.Data.UpgradePuchased = false;
         UIManager.Instance.ShowTowerInfo(UIManager.Instance.CurrentTower);
     }
     public void UpgradeRange()
     {
-        UIManager.Instance.CurrentTower.Range += RangeUpgrade;
-        UIManager.Instance.CurrentTower.UpgradePuchased = false;
+        UIManager.Instance.CurrentTower.Stats.Range += RangeUpgrade;
+        UIManager.Instance.CurrentTower.Data.UpgradePuchased = false;
         UIManager.Instance.ShowTowerInfo(UIManager.Instance.CurrentTower);
     }
 }

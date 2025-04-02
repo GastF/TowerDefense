@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdeeefe9eccf2094eb92ef23d495b64b, type: 3}
+  m_Name: Bomb Tower
+  m_EditorClassIdentifier: 
+  Name: Cannon
+  Icon: {fileID: 21300000, guid: 47deb563306d01b4aa7318fa487957e2, type: 3}
+  Info: 'Bomb your enemies away!
+
+    -Multi Target
+
+    -Slow
+
+    -Low Damage'
+  RateOfFire: 0.5
+  Damage: 3
+  Range: 7
+  Cost: 0f0000000f00000014000000
+  UpgradeCost: 140000001400000014000000
+  TypeOfProjectile: 1
+  TowerPrefab: {fileID: 8977643198441457864, guid: a3c46a08ffed3d54b84725ece6c22e2e, type: 3}
+  ProjectilePrefab: {fileID: 8508000953975530244, guid: 1f71174482299044e81f186795472bb4, type: 3}

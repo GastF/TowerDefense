@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class TowerPicker : MonoBehaviour
 {
-    public GameObject TowerPickerParent;
+    public UnityEngine.GameObject TowerPickerParent;
     public CanvasGroup TowerPickerCanvasGroup;
-    public GameObject TowerHolder;
+    public UnityEngine.GameObject TowerHolder;
     private bool _selectedSet = false;
 
     void OnEnable()
